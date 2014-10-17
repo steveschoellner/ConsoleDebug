@@ -42,8 +42,10 @@ void myMessageOutput(QtMsgType type, const char* msg) {  // <-- ADD THIS
 }  // <-- ADD THIS
 
 Q_DECL_EXPORT int main(int argc, char **argv)
+{
     Application app(argc, argv);
 
     qInstallMsgHandler(myMessageOutput);  // <-- ADD THIS
 
 ...
+}
