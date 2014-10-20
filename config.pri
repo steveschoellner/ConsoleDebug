@@ -48,6 +48,7 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/console_86_86.png) \
         $$quote($$BASEDIR/assets/images/console_90_90.png) \
         $$quote($$BASEDIR/assets/images/console_96_96.png) \
+        $$quote($$BASEDIR/assets/images/ic_email_dk.png) \
         $$quote($$BASEDIR/assets/images/ic_info.png) \
         $$quote($$BASEDIR/assets/images/ic_reload.png) \
         $$quote($$BASEDIR/assets/images/ic_share.png) \

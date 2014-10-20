@@ -22,6 +22,8 @@
 #include <bb/cascades/AbstractPane>
 #include <bb/cascades/LocaleHandler>
 #include <bb/cascades/Option>
+#include <bb/system/InvokeManager>
+#include <bb/system/InvokeRequest>
 
 using namespace bb::cascades;
 
@@ -111,7 +113,7 @@ void ApplicationUI::onReceivedData(QString _data)
 
     if (appsDropDown->selectedOption() != 0) {
         if (appsDropDown->selectedOption()->text() == allData[0]) {
-            setText(">> " + allData[2] + "\n" + getText());
+            setText("<" + QTime::currentTime().toString("hh:mm:ss") + "> " + allData[2] + "\n" + getText());
         }
     }
 
@@ -162,4 +164,21 @@ void ApplicationUI::setActiveFrameFontSize(int activeFrameFontSize) {
         settings->setValue("activeFrameFontSize", activeFrameFontSize);
         emit activeFrameFontSizeChanged();
     }
+}
+
+void ApplicationUI::sendEmail(QString subject, QString body) {
+    // Create the invoke
+    bb::system::InvokeManager* invokeManager = new bb::system::InvokeManager(this);
+    bb::system::InvokeRequest request;
+
+    // Sets the URI for prepopulating the fields
+    request.setTarget("sys.pim.uib.email.hybridcomposer");
+
+    // Construct the URI
+    QString uri = "mailto:?subject=" + QUrl::toPercentEncoding(subject, "", " ") + "&body=" + QUrl::toPercentEncoding(body, "", " ");
+    request.setUri(uri);
+
+    // Invoke
+    invokeManager->invoke(request);
+    invokeManager->deleteLater();
 }

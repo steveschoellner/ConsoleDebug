@@ -27,9 +27,10 @@ Sheet {
                     verticalAlignment: VerticalAlignment.Center
                     Label {
                         horizontalAlignment: HorizontalAlignment.Center
-                        text: qsTr("For a developer, nothing is worste than having a user getting an unexpected bug/crash that can't be reproduce on another phone. Connecting the phone to Momentics would really help in those cases, as the console log would show us more details on what's happening.\n\nHere comes ConsoleDebug, it's an app that will print all the console logs ( 'qDebug()' AND 'console.log()' ) on the user's screen, so he can copy and share it with the dev. This app is only intended to be use as a debug helper.")
+                        text: qsTr("By adding a few lines of code (less than 20), any existing app can show the console log usually displayed in Momentics on ConsoleDebug screen, so you have a console available even when you're on the go. Perfect for those bugs/crash that are sporadic and doesn't always come up when you're connected to Momentics. Another use case would be if a user is experiencing a bug/crash that you can't reproduce, you tell that user to download ConsoleDebug and to send you the console logs when the bug happens.\n\nMore info on how to implement in your own project on GitHub : https://github.com/RodgerLeblanc/ConsoleDebug")
                         multiline: true
                         textStyle.base: SystemDefaults.TextStyles.TitleText
+                        content.flags: TextContentFlag.ActiveText
                     }
                     Label {
                         horizontalAlignment: HorizontalAlignment.Center

@@ -16,13 +16,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>For a developer, nothing is worste than having a user getting an unexpected bug/crash that can&apos;t be reproduce on another phone. Connecting the phone to Momentics would really help in those cases, as the console log would show us more details on what&apos;s happening.
-
-Here comes ConsoleDebug, it&apos;s an app that will print all the console logs ( &apos;qDebug()&apos; AND &apos;console.log()&apos; ) on the user&apos;s screen, so he can copy and share it with the dev. This app is only intended to be use as a debug helper.</source>
+        <source>App Icon is from icons8.com</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>App Icon is from icons8.com</source>
+        <source>By adding a few lines of code (less than 20), any existing app can show the console log usually displayed in Momentics on ConsoleDebug screen, so you have a console available even when you&apos;re on the go. Perfect for those bugs/crash that are sporadic and doesn&apos;t always come up when you&apos;re connected to Momentics. Another use case would be if a user is experiencing a bug/crash that you can&apos;t reproduce, you tell that user to download ConsoleDebug and to send you the console logs when the bug happens.
+
+More info on how to implement in your own project on GitHub : https://github.com/RodgerLeblanc/ConsoleDebug</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -126,6 +126,10 @@ Here comes ConsoleDebug, it&apos;s an app that will print all the console logs (
     </message>
     <message>
         <source>Reload DropDown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Email log</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

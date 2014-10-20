@@ -22,8 +22,8 @@ static const uint qt_meta_data_ApplicationUI[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
-       3,   49, // properties
+       8,   14, // methods
+       3,   54, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
@@ -41,11 +41,12 @@ static const uint qt_meta_data_ApplicationUI[] = {
  // methods: signature, parameters, type, tag, flags
      135,   14,   14,   14, 0x02,
      159,  150,   14,   14, 0x02,
+     189,  176,   14,   14, 0x02,
 
  // properties: name, type, flags
-     184,  176, 0x0a495103,
-     193,  189, 0x02495103,
-     205,  189, 0x02495103,
+     224,  216, 0x0a495103,
+     233,  229, 0x02495103,
+     245,  229, 0x02495103,
 
  // properties: notify_signal_id
        0,
@@ -60,7 +61,8 @@ static const char qt_meta_stringdata_ApplicationUI[] = {
     "appFontSizeChanged()\0activeFrameFontSizeChanged()\0"
     "onSystemLanguageChanged()\0_data\0"
     "onReceivedData(QString)\0fillDropDown()\0"
-    "newValue\0setText(QString)\0QString\0"
+    "newValue\0setText(QString)\0subject,body\0"
+    "sendEmail(QString,QString)\0QString\0"
     "text\0int\0appFontSize\0activeFrameFontSize\0"
 };
 
@@ -77,6 +79,7 @@ void ApplicationUI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 4: _t->onReceivedData((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 5: _t->fillDropDown(); break;
         case 6: _t->setText((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 7: _t->sendEmail((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         default: ;
         }
     }
@@ -114,9 +117,9 @@ int ApplicationUI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 8;
     }
 #ifndef QT_NO_PROPERTIES
       else if (_c == QMetaObject::ReadProperty) {

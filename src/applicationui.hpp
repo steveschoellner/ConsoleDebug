@@ -51,6 +51,7 @@ public:
 
     Q_INVOKABLE void fillDropDown();
     Q_INVOKABLE void setText(QString newValue);
+    Q_INVOKABLE void sendEmail(QString subject, QString body);
 
 private slots:
     void onSystemLanguageChanged();

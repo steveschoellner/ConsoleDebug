@@ -18,7 +18,8 @@ import bb.cascades 1.3
 
 Page {
     property int appFontSize: _app.appFontSize
-
+    property string appExplanation: "This app shows console logs of a connected app. To connect to ConsoleDebug, you need to add about 20 lines of code to your app. You can have more info on how to set your app here : https://github.com/RodgerLeblanc/ConsoleDebug\n\nOnce done, your console logs will appear here. ConsoleDebug is a new app and no published app can connect to it actually. You can build this test app if you want to try it : https://github.com/RodgerLeblanc/ConsoleClient"
+    
     Menu.definition: MenuDefinition {        
         settingsAction: [
             SettingsActionItem {
@@ -45,10 +46,24 @@ Page {
                 onTriggered: invoke.trigger("bb.action.OPEN");
             },
             ActionItem {
+                id: reloadAction
                 title: qsTr("Reload DropDown")
                 ActionBar.placement: ActionBarPlacement.OnBar
                 imageSource: "asset:///images/ic_reload.png"
                 onTriggered: _app.fillDropDown()
+                enabled: appsDropDown.visible
+            },
+            ActionItem {
+                id: emailAction
+                title: qsTr("Email log")
+                ActionBar.placement: ActionBarPlacement.OnBar
+                imageSource: "asset:///images/ic_email_dk.png"
+                enabled: (appsDropDown.count() > 0)
+                onTriggered: {
+                    var subject = "-- ConsoleDebug -- " + appsDropDown.selectedOption.text
+                    var body = textArea.text
+                    _app.sendEmail(subject, body)
+                }
             }
         ]      
     } // end of MenuDefinition
@@ -71,7 +86,7 @@ Page {
             }
         }
     ]
-    ScrollView {
+    Container {
         Container {
             topPadding: ui.du(3)
             leftPadding: topPadding
@@ -79,18 +94,31 @@ Page {
             bottomPadding: topPadding
             DropDown {
                 objectName: "appsDropDown"
+                id: appsDropDown
                 title: "App to show console"
+                visible: (count() > 0)
+                onOptionAdded: visible = true
                 onSelectedOptionChanged: {
-                    _app.setText("")
-                    if (selectedOption != 0)
+                    _app.setText(" ")
+                    if (selectedOption != 0) {
+                        emailAction.enabled = true
                         _settings.setValue("appsDropDownOptionText", selectedOption.text)
+                    }
+                    else {
+                        emailAction.enabled = false
+                    }
                 }
             }
-            TextArea {
-                text: _app.text
-                editable: false
-                textStyle.fontSize: FontSize.PointValue
-                textStyle.fontSizeValue: appFontSize
+        }        
+        ScrollView {
+            Container {
+                TextArea {
+                    id: textArea
+                    text: (_app.text == "") ? appExplanation : _app.text
+                    editable: false
+                    textStyle.fontSize: FontSize.PointValue
+                    textStyle.fontSizeValue: appFontSize
+                }
             }
         }
     }
