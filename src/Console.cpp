@@ -29,9 +29,9 @@ Console::~Console()
 void Console::sendMessage(QString _data)
 {
     bb::ApplicationInfo appInfo;
-    QString message = appInfo.title() + "$$" + _data;
+    QString message = appInfo.title() + "##" + _data;
 
-//    qDebug() << "Console::sendMessage(): " + message;
+    qDebug() << "Console::sendMessage(): " + message;
 
     m_socket->writeDatagram(message.toStdString().c_str(),QHostAddress("127.0.0.1"), CONSOLEDEBUG_SENDING_PORT);
 }

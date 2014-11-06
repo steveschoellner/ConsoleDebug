@@ -63,6 +63,7 @@ ApplicationUI::ApplicationUI() :
     QmlDocument *qml = QmlDocument::create("asset:///main.qml").parent(this);
     qml->setContextProperty("_app", this);
     qml->setContextProperty("_settings", settings);
+    qml->setContextProperty("_console", console);
 
     // Create root object for the UI
     AbstractPane *root = qml->createRootObject<AbstractPane>();

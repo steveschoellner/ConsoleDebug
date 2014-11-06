@@ -27,6 +27,13 @@ More info on how to implement in your own project on GitHub : https://github.com
     </message>
 </context>
 <context>
+    <name>ActionItem</name>
+    <message>
+        <source>Do Stuff</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ActiveFrameFontSizeContainer</name>
     <message>
         <source>Active Frame Font Size</source>
@@ -130,6 +137,10 @@ More info on how to implement in your own project on GitHub : https://github.com
     </message>
     <message>
         <source>Email log</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do Stuff</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

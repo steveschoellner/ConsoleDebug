@@ -37,6 +37,7 @@ simulator {
 config_pri_assets {
     OTHER_FILES += \
         $$quote($$BASEDIR/assets/AboutSheet.qml) \
+        $$quote($$BASEDIR/assets/ActionItem.qml) \
         $$quote($$BASEDIR/assets/ActiveFrameFontSizeContainer.qml) \
         $$quote($$BASEDIR/assets/MainAppFontSizeContainer.qml) \
         $$quote($$BASEDIR/assets/SettingsSheet.qml) \
@@ -48,11 +49,13 @@ config_pri_assets {
         $$quote($$BASEDIR/assets/images/console_86_86.png) \
         $$quote($$BASEDIR/assets/images/console_90_90.png) \
         $$quote($$BASEDIR/assets/images/console_96_96.png) \
+        $$quote($$BASEDIR/assets/images/ic_code_inspector.png) \
         $$quote($$BASEDIR/assets/images/ic_email_dk.png) \
         $$quote($$BASEDIR/assets/images/ic_info.png) \
         $$quote($$BASEDIR/assets/images/ic_reload.png) \
         $$quote($$BASEDIR/assets/images/ic_share.png) \
-        $$quote($$BASEDIR/assets/main.qml)
+        $$quote($$BASEDIR/assets/main.qml) \
+        $$quote($$BASEDIR/assets/mindw0h0du/ActionItem.qml)
 }
 
 config_pri_source_group1 {
@@ -88,7 +91,10 @@ lupdate_inclusion {
         $$quote($$BASEDIR/../assets/cover/*.qs) \
         $$quote($$BASEDIR/../assets/images/*.qml) \
         $$quote($$BASEDIR/../assets/images/*.js) \
-        $$quote($$BASEDIR/../assets/images/*.qs)
+        $$quote($$BASEDIR/../assets/images/*.qs) \
+        $$quote($$BASEDIR/../assets/mindw0h0du/*.qml) \
+        $$quote($$BASEDIR/../assets/mindw0h0du/*.js) \
+        $$quote($$BASEDIR/../assets/mindw0h0du/*.qs)
 
     HEADERS += \
         $$quote($$BASEDIR/../src/*.h) \

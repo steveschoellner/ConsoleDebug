@@ -23,7 +23,7 @@ public:
     Console();
     virtual ~Console();
 
-    void sendMessage(QString _command);
+    Q_INVOKABLE void sendMessage(QString _command);
 
 private:
     void listenOnPort(int _port);

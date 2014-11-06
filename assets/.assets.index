@@ -1,6 +1,7 @@
 1
-17
+20
 AboutSheet.qml
+ActionItem.qml
 ActiveFrameFontSizeContainer.qml
 cover/AppCover.qml
 images/console_110_110.png
@@ -9,11 +10,13 @@ images/console_144_144.png
 images/console_86_86.png
 images/console_90_90.png
 images/console_96_96.png
+images/ic_code_inspector.png
 images/ic_email_dk.png
 images/ic_info.png
 images/ic_reload.png
 images/ic_share.png
 main.qml
 MainAppFontSizeContainer.qml
+mindw0h0du/ActionItem.qml
 SettingsSheet.qml
 ThemeContainer.qml

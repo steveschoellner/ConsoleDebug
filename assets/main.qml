@@ -15,11 +15,24 @@
  */
 
 import bb.cascades 1.3
+import bb.system 1.2
 
 Page {
     property int appFontSize: _app.appFontSize
     property string appExplanation: "This app shows console logs of a connected app. To connect to ConsoleDebug, you need to add about 20 lines of code to your app. You can have more info on how to set your app here : https://github.com/RodgerLeblanc/ConsoleDebug\n\nOnce done, your console logs will appear here. ConsoleDebug is a new app and no published app can connect to it actually. You can build this test app if you want to try it : https://github.com/RodgerLeblanc/ConsoleClient"
-    
+    property bool appSelected
+/*
+    onAppSelectedChanged: {
+        if (appSelected) {
+            removeAction(doStuffDisabled)
+            addAction(doStuffEnabled)            
+        }
+        else {
+            removeAction(doStuffEnabled)
+            addAction(doStuffDisabled)
+        }
+    }   
+*/         
     Menu.definition: MenuDefinition {        
         settingsAction: [
             SettingsActionItem {
@@ -84,8 +97,32 @@ Page {
                 invokeTargetId: "sys.appworld"
                 uri: "appworld://vendor/70290"
             }
+        },
+        ActionItem {
+            id: doStuffEnabled
+        },
+        SystemPrompt {
+            id: systemPrompt
+            title: "For debugging purpose only"
+            body: "Enter a command line to interact with " + appsDropDown.selectedOption.text + " app"
+            onFinished: {
+                _console.sendMessage(inputFieldTextEntry())
+            }
         }
     ]
+    actions: [
+        ActionItem {
+            id: doStuffDisabled
+            title: qsTr("Do Stuff")
+            imageSource: "asset:///images/ic_code_inspector.png"
+//            enabled: false
+            ActionBar.placement: ActionBarPlacement.OnBar
+            onTriggered: {
+                systemPrompt.show()
+            }
+        }
+    ]
+
     Container {
         Container {
             topPadding: ui.du(3)
@@ -101,10 +138,12 @@ Page {
                 onSelectedOptionChanged: {
                     _app.setText(" ")
                     if (selectedOption != 0) {
+                        appSelected = true
                         emailAction.enabled = true
-                        _settings.setValue("appsDropDownOptionText", selectedOption.text)
+                        _settings.setValue("appsDropDownOptionText", selectedOption.text)                        
                     }
                     else {
+                        appSelected = false
                         emailAction.enabled = false
                     }
                 }
